@@ -1,0 +1,347 @@
+/* The opening animation css */
+
+@font-face{
+    font-family:"Helvetica-Light";
+    src:url("fonts/myHelvetica.otf") format("opentype"),
+    url("fonts/helvetica-light.ttf") format("truetype");
+    font-weight:lighter;
+    
+}
+
+@font-face{
+    font-family:"Kantumruy";
+    src:url("fonts/Kantumruy_Pro/KantumruyPro-VariableFont_wght.ttf") format("truetype");
+    font-weight:100;
+    
+}
+
+body {
+    margin: 0;
+    background-image: linear-gradient(rgb(72, 11, 11), rgb(0, 0, 0));
+    /* script makes backgroundImage upon animationend */
+    background-repeat:no-repeat;
+    overflow-x:hidden;
+    /* font-family: Kantumruy; */
+    font-family: Kantumruy, Helvetica, Arial, sans-serif;
+    letter-spacing: 0.1em;
+    line-height:1.8em;
+    
+}
+
+@media only screen and (max-width: 650px) {
+    body{
+        line-height: 1.5em;
+
+    }
+    
+    }
+
+.white-bg {
+    height:100vh;
+    width:100vw;
+    pointer-events: none;
+    animation: bgmove 3s;
+    background-color: rgba(255, 255, 255, 0);
+    position:absolute;
+    z-index:1;
+}
+
+
+/* bg animated from white to transparent */
+@keyframes bgmove {
+
+    0% {
+        background-color: white;
+    }
+    75% {
+        background-color: white;
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+
+
+@media only screen and (max-width: 650px) {
+    h1 {
+        font-size:3vw;
+    }
+    h2 {
+        font-size:2.5vw;
+    }
+    h3 {
+        font-size:2vw;
+    }
+    }
+
+
+/* css for main page accordian */
+
+.acc-wrapper{
+    position:fixed;
+    /* right:5%;
+    left: 5%; */
+    width:100%;
+    height:85vh;
+    /* controls the margin from the bottom */
+    
+    }
+
+    .accordion{
+    display:flex;
+    flex-wrap:nowrap;
+    flex-direction:column;
+    overflow:hidden;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    height:100%;
+    }
+
+    .acc-child {
+    width:100%;
+    /* to color text, h1 & h3 not specific enough? */
+    color:white; 
+    /* Height attribute here can limit how far the div can expand, avoids taking up all space for long divs & expands short divs */
+    height:95%;
+    flex-grow:1;
+    flex-shrink:1;
+    overflow:hidden;
+    transition:all .75s ease;
+    border-bottom:1px solid white;
+    }
+
+    /* This class gets added to the div upon scroll to make it larger */
+    .acc-focus-0 {
+        opacity:100;
+        flex-shrink:0;
+    }
+
+    .accordion div img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    /* aspect-ratio: 16/9; */
+    }
+
+    /* This controls the grid that allows the border to overlap the main image */
+    .parent {
+        display: grid;
+        grid-template-columns: 1fr;
+        height:100vh;
+        margin-top:5vh;
+        overflow:hidden; /* Prevents main image from stretching down the entire page, doesn't affect logo */
+    }
+
+    .parent div {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        height:70%;
+    }
+
+    /* Main image */
+    .splash-img {
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+    }
+
+    /* Main image's border */
+    .border {
+        /* z-index: -1; */
+        /* animation: bordermove 4s; */
+        /* transform: scale(0.9, 0.5); */
+        fill: rgba(255, 255, 255, 0); /* transparent */
+        stroke-width: 5; /* how to align to outisde of rect? Can make it less wide then. */
+        stroke: url(#cl1);
+    }
+
+    .nav-grid {
+        width: 90vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        justify-self:center;
+        text-align: right;
+        /* transition: .5s; */
+    }
+
+    /* controls text and link behavior */
+
+    h1{
+        color: white;
+    }
+
+    a {
+        text-decoration:none;
+        color:white;  
+    }
+
+    .link{
+        transition:0.5s;
+    }
+
+    .link:hover {
+        color:orangered;
+    }
+
+    .link:active {
+        color:crimson;
+    }
+
+
+    .scroll-snap {
+        height:200vh;
+    }
+
+    /* For work page */
+
+    .work-container {
+        display: flex;
+        flex-direction:column;
+        margin-left: 5%;
+        gap: 5vh;
+    }
+
+    .work-parent {
+        display: flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap: 10vh;
+        padding: 10vh;
+        margin-right:10vh;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .work-parent >div {
+        border: solid 1px;
+        border-image-slice: 1;
+            border-image-source: linear-gradient(
+                45deg,
+                black 0%,
+                rgba(255,223,154,1) 33%,
+                white 50%,
+                rgba(255,223,154,1) 66%,
+                black 100%
+                );
+        width:20vw;
+        height:40vh; 
+        /* the height of these boxes determines height of the page */
+    }
+
+    .thumbnail {
+        color:white;
+        /* For the alt text to show up white */
+        object-fit: cover;
+        width:100%;
+        height:100%;
+        /* max-width:20vw;
+        max-height:40vh; */
+    }
+
+    .scroll-window {
+        width:90%;
+        height:90vh;
+        /* position:fixed; */
+        position:sticky;
+        display:grid;
+        grid-template-rows: 1fr;
+        top: 5%;
+        left:5%;
+        /* color:white; */
+        pointer-events:none;
+    }
+
+    .scroll-grid {
+        /* border: 1px solid rgb(0, 174, 255); */
+        background-color: rgba(0, 0, 0, 0);
+        width: 5%; /* "hitbox" for scrolling over */
+        height: 100%;
+        max-height: 90vh;
+        /* 90vh matches the height of the scroll-window, keeps going off-screen otherwise */
+        /* This controls their behavior as a child of .scroll-window, to make them overlap */
+        grid-row-start: 1;
+        grid-column-start: 1;
+        /* This controls their children's grid behavior */
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        /* display: flex;
+        flex-direction:column; */
+        gap: 2%;
+        transition: 0.75s;
+    }
+
+    .fly-menu{
+        z-index:-2;
+        width: 25vw;
+        background-color:rgba(0, 0, 0, 0.5);
+    }
+
+    .neutral-scroll {
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    #text-grid {
+        color:rgba(255, 255, 255, 0);
+        pointer-events:all;
+        /* to prevent it from inheriting pointer-events:none that is on its parent, scroll-grid */
+    }
+
+    #text-grid > div {
+        transition:0.5s;
+    }
+
+    .pop-out-text {
+        color:rgb(255, 255, 255);
+        transform:translateX(5vh);
+    }
+
+    .scroll-grid-0 {
+        grid-template-rows: 20fr 3fr 2fr 1fr 1fr 1fr;
+    }
+    .scroll-grid-1 {
+        grid-template-rows: 3fr 20fr 3fr 2fr 1fr 1fr;
+    }
+    .scroll-grid-2 {
+        grid-template-rows: 2fr 3fr 20fr 3fr 2fr 1fr;
+    }
+    .scroll-grid-3 {
+        grid-template-rows: 1fr 2fr 3fr 20fr 3fr 2fr;
+    }
+    .scroll-grid-4 {
+        grid-template-rows: 1fr 1fr 2fr 3fr 20fr 3fr;
+    }
+    .scroll-grid-5 {
+        grid-template-rows: 1fr 1fr 1fr 2fr 3fr 20fr;
+    }
+
+    .rect-component {
+        fill:white;
+        width: 0.25vw; /* Note, only shows up with a specific width, not % */    
+        height: 300%; /* because the rects take up 20% of the "hitbox" width, they don't go as far down with height. Overcompensating with height: 300% works  */
+    }
+
+    .title {
+        color:white;
+        text-align:center;
+        margin-left:15vh;
+        margin-right:15vh;
+        /* padding: 2%; */
+    }
+
+    .pgph {
+        color:white;
+        text-align:center;
+        margin-left: 10%;
+        margin-right:10%;
+        margin-top:5%;
+        margin-bottom: 5%;
+    }
+
+    .gallery {
+        width:50%;
+        margin-left:25%;
+    }
+
+
+

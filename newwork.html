@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>Ashna Mali's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        html{
+            scroll-behavior:smooth;
+        }
+
+        .big-grid {
+            display:grid;
+            grid-template-columns: 1fr;
+        }
+
+        .big-grid >div {
+            grid-row-start: 1;
+            grid-column-start: 1;
+        }
+
+        .work-parent > div {
+            min-width:250px;
+            display:grid;
+            grid-template-columns: 1fr;
+        }
+        .work-parent > div > * {
+            overflow:hidden; /* prevents vertical photos from expanding beyond div */
+            transition:0.5s;
+            grid-column-start: 1;
+            grid-row-start: 1;
+        }
+
+        .image-overlay-hovered{
+            background-color:rgba(0, 0, 0, 0.75);
+        }
+
+        .work-text{
+            transition:0.5s;
+            color:rgba(255, 255, 255, 0);
+            z-index:1;
+            pointer-events:none;
+            text-align:center;
+            padding-top:25%;
+        }
+        
+        
+        .work-text-hovered {
+            color:white;
+        }
+
+        .gold-border {
+            border: solid 1px;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(
+                45deg,
+                black 0%,
+                rgba(255,223,154,1) 33%,
+                white 50%,
+                rgba(255,223,154,1) 66%,
+                black 100%
+                );
+        }
+
+        
+   
+    </style>
+</head>
+
+
+<body>
+
+    <nav>
+        <div class="nav-grid link">
+            <a href="index.html"><h1 class="link" style="text-align:left;">Back</h1></a>
+            <h1></h1>
+            <h1></h1>
+        </div>
+    </nav>
+
+    <div><h1 class="title">Showreel</h1></div>
+    <!-- <iframe  src="https://www.youtube.com/embed/jMs3ra1E7q0"
+            title="Ashna Mali Motion Design Reel 2025"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen=""
+            style="position: relative; margin-top:2%; margin-bottom:2%; margin-left:25%; width: 50vw; height: 50vh; ">
+    </iframe> -->
+    <video class="gold-border" width="40%" height="auto;" title="My Showreel" style="position: relative; margin-top:2%; margin-bottom:2%; margin-left:30%;" controls>
+        <source src="images/Ashna Mali Motion Design Reel 2025.mp4" type="video/mp4">
+        <!-- <source src="movie.ogg" type="video/ogg"> -->
+        Your browser does not support the video tag. Watch my showreel <a src="https://www.youtube.com/watch?v=jMs3ra1E7q0">on Youtube</a> instead
+    </video>
+    <div><h1 class="title">Portfolio</h1></div>
+    <!-- <iframe width="757" height="417" src="https://www.youtube.com/embed/jMs3ra1E7q0" title="Ashna Mali Motion Design Reel 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+
+    <!-- start of grid that houses scroll code and work container. Necessary for scroll bar's sticky position! -->
+    <div class="big-grid">
+
+        <!-- start of scroll code -->
+        <div class="scroll-window">
+
+            <!-- underlapping left-hand grid for text to pop out -->
+            <div id="text-grid" class="scroll-grid" >
+                <div id="text0" data-index="0" name="anchor0">
+                    <h3 class="link">VFX</h3>
+                </div>
+                <div id="text1" data-index="1" name="anchor1">
+                    <h3 class="link">Motion Graphics</h3>
+                </div>
+                <div id="text2" data-index="2" name="anchor2">
+                    <h3 class="link">Graphic Design</h3>
+                </div>
+                <div id="text3" data-index="3" name="anchor3">
+                    <h3 class="link">UX Design</h3>
+                </div>
+                <div id="text4" data-index="4" name="anchor4">
+                    <h3 class="link">3D modeling and CAD</h3>
+                </div>
+                <div id="text5" data-index="5" name="anchor5">
+                    <h3 class="link">Installations</h3>
+                </div>
+            </div>
+
+            <!-- scroll grid   onmouseover="expandMenu()" onmouseout="shrinkMenu()"-->
+            <div class="scroll-grid" style="pointer-events: none;">
+                <svg width="100%;" height="100%">
+                    <rect class="rect-component" />
+                </svg>
+                <svg width=100%; height=100%>
+                    <rect class="rect-component" />
+                </svg>
+                <svg width=100%; height=100%>
+                    <rect class="rect-component" />
+                </svg>
+                <svg width=100%; height=100%>
+                    <rect class="rect-component" />
+                </svg>
+                <svg width=100%; height=100%>
+                    <rect class="rect-component" />
+                </svg>
+                <svg width=100%; height=100%>
+                    <rect class="rect-component" />
+                </svg>
+            </div>
+
+            
+        </div> <!-- end of scroll window-->
+        
+
+        <div class="work-container">
+            <!-- vfx and animation -->
+            <div class="work-parent" data-index="0">
+                <div my-url="pages/Attention.html">
+                    <img class="thumbnail" src="images/Compressed/Attention/Attention thumbnail 500KB.png" alt="Attention">
+                    <div class="work-text"><h2>"Attention"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Motion_Portrait.html">
+                    <img class="thumbnail" src="images/Motion Graphics/Motion Portrait Thumbnail.png" alt="Motion Portrait">
+                    <div class="work-text"><h2>"Motion Portrait"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Choreo_Collage.html">
+                    <img class="thumbnail" src="images/Motion Graphics/Animated Choreography Thumbnail.png" alt="Choreography Collage">
+                    <div class="work-text"><h2>"Choreo Collage"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Bronze.html">
+                    <img class="thumbnail" src="images/Bronze/Bronze looking loop gif.gif" alt="Bronze">
+                    <div class="work-text"><h2>"Bronze"</h2> <h2>2023</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Tradition.html">
+                    <img class="thumbnail" src="images/Thumbnails/Tradition and Talent image thumbnail.png" alt="Tradiition and Talent">
+                    <div class="work-text"><h2>"Tradition and the Individual Talent"</h2> <h2>2023</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Rocketship.html">
+                    <img class="thumbnail" src="images/Compressed/Rocketship/Rocketship 500KB.png" alt="Rocketship">
+                    <div class="work-text"><h2>"Rocketship"</h2> <h2>2023</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+
+            <!-- motion graphics -->
+            <div class="work-parent" data-index="1">
+                <div my-url="pages/Origin.html">
+                    <img class="thumbnail" src="images/Origin/Origin Video Thumbnail.png" alt="Origin">
+                    <div class="work-text"><h2>"Origin"</h2> <h2>2024</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/This_Website.html">
+                    <img class="thumbnail" src="images/Motion Graphics/Animated Signature Thumbnail.png" alt="Animated Signature">
+                    <div class="work-text"><h2>"Animated Signature"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Leaving_Home.html">
+                    <img class="thumbnail" src="images/Motion Graphics/Kinetic Text Thumbnail.png" alt="Leaving Home">
+                    <div class="work-text"><h2>"Leaving Home"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+
+            <!-- graphic design -->
+            <div class="work-parent" data-index="2">
+                <div my-url="pages/NYU_WW_24.html">
+                    <img class="thumbnail" src="images/Compressed/OUE Signage/All signage (1 of 3) 500KB.png" alt="NYU Welcome Week 2024">
+                    <div class="work-text"><h2>"NYU Welcome Week Signage 2024"</h2> <h2>2024</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/NYU_GA25.html">
+                    <img class="thumbnail" src="images/OUE Signage/GA25 Loewe DRAFT.png" alt="NYU Grad Alley 2025 Poster">
+                    <div class="work-text"><h2>"NYU Grad Alley 2025 Poster"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/KAIST_NYU_Logo.html">
+                    <img class="thumbnail" src="images/KAIST/Nupzuki of Liberty-02.png" alt="Nupzuki of Liberty">
+                    <div class="work-text"><h2>"KAIST-NYU Mascot Logo"</h2> <h2>2024</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+
+            <!-- UI/UX design & Web Development -->
+            <div class="work-parent" data-index="3">
+                <div my-url="pages/This_Website.html">
+                    <img class="thumbnail" src="images/This Website/Portfolio Website thumbnail.png" alt="This website">
+                    <div class="work-text"><h2>This Portfolio Website</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Origin.html">
+                    <img class="thumbnail" src="images/Compressed/Origin/Origin phone screen 500KB.png" alt="Origin"> 
+                    <div class="work-text"><h2>"Origin"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+
+            <!-- 3D modelling -->
+            <div class="work-parent" data-index="4">
+                <div my-url="pages/LightBox.html">
+                    <img class="thumbnail" src="images/Compressed/LightBox/LightBox Thumbnail 500KB.png" alt="LightBox">
+                    <div class="work-text"><h2>"LightBox"</h2> <h2>2024</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Plush_Radio.html">
+                    <img class="thumbnail" src="images/KAIST/Slides (3).png" alt="Plush Radio">
+                    <div class="work-text"><h2>"Plush Radio"</h2> <h2>2024</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Art_Ghost.html">
+                    <img class="thumbnail" src="images/Art Ghost/Art Ghost Fusion Screenshot.png" alt="Art Ghost Fusion file">
+                    <div class="work-text"><h2>"Art Ghost"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Attention.html">
+                    <img class="thumbnail" src="images/Attention/Gothic Window Fusion Screenshot.png" alt="Gothic Window">
+                    <div class="work-text"><h2>"Gothic Window Model"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+
+            <!-- Installations -->
+            <div class="work-parent" data-index="5">
+                <div my-url="pages/Art_Ghost.html">
+                    <img class="thumbnail" src="images/Compressed/Art Ghost/Yilin Interaction Art Ghost Image 50KB.jpg" alt="Art Ghost">
+                    <div class="work-text"><h2>"Art Ghost"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Digital_Taxidermy.html">
+                    <img class="thumbnail" src="images/Digital Taxidermy/Digital Taxidermy in Context.JPG" alt="Digital Taxidermy">
+                    <div class="work-text"><h2>"Digital Taxidermy"</h2> <h2>2025</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Musical_Experiment.html">
+                    <img class="thumbnail" src="images/Compressed/A Musical Experiment/A Musical Experiment 500KB.png" alt="A Musical Experiment">
+                    <div class="work-text"><h2>"A Musical Experiment"</h2> <h2>2023</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+                <div my-url="pages/Afraid.html">
+                    <img class="thumbnail" src="images/Compressed/Are you afraid to think about it/Afraid sign in context 500KB.png" alt="Are you afraid to think about it?">
+                    <div class="work-text"><h2>"Are you afraid to think about it?"</h2> <h2>2024</h2></div>
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+
+            <!-- Coding Projects... maybe include, hidden for now -->
+            <div style="display:none;" class="work-parent">
+                <div>IBTD Final</div>
+                <div>Truism</div>
+            </div>
+
+        </div> <!-- end of work container -->
+    
+    </div> <!-- end of the big grid -->
+
+
+    <!-- necessary scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="workscript.js"></script>
+
+</body>

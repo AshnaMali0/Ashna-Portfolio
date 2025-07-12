@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>Ashna Mali's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+
+        html {
+            scroll-snap-type: y mandatory;
+        }
+
+        .scroll-snap{
+            pointer-events:none;
+            display:grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            height:300vh;
+            width:100vw;
+            position:relative;
+        }
+
+        .scroll-child {
+            scroll-snap-align: start;
+            scroll-snap-stop: always; /* for phone scrolling */
+            
+        }
+
+        #panel-2 {
+            display:grid;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+
+        #panel-2 > div{
+            margin: 2%;
+            border: solid 2px;
+            color:white;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(
+                45deg,
+                black 0%,
+                rgba(255,223,154,1) 33%,
+                white 50%,
+                rgba(255,223,154,1) 66%,
+                black 100%
+                );
+            /* border-image-source: url(#cl1); */
+        }
+        
+
+        .panel-2-img {
+            object-fit:cover;
+            width:100%;
+            max-height:15vh;
+            /* max-height:100% still stretches the container */
+        }
+
+        #panel-3-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas: 
+                "image bio bio"
+                "image bio bio"
+                "image mail linkedin";
+            /* height:95%; */
+            width: 100%;
+        }
+
+        #panel-3-grid > div{
+            margin: 5%;
+        }
+
+        #panel-3-grid >img {
+            object-fit: cover;
+            max-width: 100%;
+            max-height: 90%;
+        }
+
+        /* #panel-4-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas: 
+                "act-1  act-1  act-1 act-2 act-2 act-2 skills"
+                "head-1 head-1 exp-1 exp-1 exp-1 exp-1 skills"
+                "head-2 head-2 exp-2 exp-2 exp-2 exp-2 skills"
+                ;
+        } */
+
+        .index-grid {
+            display:grid;
+            grid-template-rows: 1fr;
+        }
+
+        .index-grid >*{
+            grid-row-start: 1;
+            grid-column-start: 1;
+        }
+
+        .index-grid > img {
+            /* A narrow enough aspect ratio forces it to fill dynamically according to other divs */
+            /* filter: blur(2px);
+            -webkit-filter: blur(2px); */
+            aspect-ratio: 10/1;
+        }
+
+        .index-grid > h1 {
+            z-index:1;
+            margin-top:auto;
+            margin-bottom:auto;
+            margin-left: 5%;
+            pointer-events:none; /* to avoid interfering with overlay since it has z-index 1*/
+            
+        }
+
+        .index-overlay{
+            transition: 0.5s;
+            background: linear-gradient(to right, black, rgba(0, 0, 0, 0) 75%) ;
+        }
+
+        /* javascript controls this hover effect */
+        .index-overlay-hovered {
+            background: linear-gradient(to right, black, rgba(0, 0, 0, 0.1) 100%) ;
+        }
+        /* To make arrow on splash page */
+        .child3 {
+            z-index:1;
+            display:flex;
+            justify-self:center;
+            /* text-align:center; */
+            margin-bottom:10%;
+            
+            
+        }
+
+        .splash-arrow {
+            width:2.5vw;
+            height:7.5vw;
+            transform:rotate(-90deg);
+            align-self:flex-end;
+            
+        }
+
+        svg{
+            transition:0.5s;
+        }
+
+        /* changes color of panel 3 (about me) icons on hover */
+
+        #linkedin-icon{
+            fill:white;
+        }
+
+        #linkedin-icon:hover{
+            fill:orangered;
+        }
+
+        #mail-icon #Rectangle{
+            transition: 0.5s;
+        }
+
+        #mail-icon:hover #Rectangle {
+            stroke:orangered;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    
+    <!-- Accordian -->
+    <div class="acc-wrapper">
+
+        <!-- white background for website opening -->
+        <div class="white-bg"></div>
+        
+
+        <!-- the navigation sneaks in here too -->
+        <nav>
+            <div class="nav-grid">
+                <h1></h1>
+                <h1></h1>
+                <a href="newwork.html"><h1 class="link">Portfolio</h1></a>
+            </div>
+        </nav>
+
+        <div class="accordion">
+
+            <!-- Panel 1, splash page -->
+
+            <div class="acc-child">
+                <div class="parent" height="100%">
+                    <div class="child1" style="overflow: hidden;">
+                        <img class="splash-img" src="images/Bronze/bronze.gif" alt="bronze gif">
+                    </div>
+                    <div class="child2">
+                        <svg style="width:100%; height:100%;">
+                            <rect class="border" width="100%" height="100%" transform-origin="50% 50%" />
+                        </svg>
+                    </div>
+                    <div class="child3">
+                        <?xml version="1.0" encoding="UTF-8"?>
+                            <svg class="splash-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520.65 993.32" preserveAspectRatio="none">
+                            <defs>
+                                <style>
+                                .cls-1 {
+                                    fill: none;
+                                    stroke: #fff;
+                                    stroke-miterlimit: 10;
+                                    stroke-width: 33.93px;
+                                }
+                                </style>
+                            </defs>
+                            <polyline class="cls-1" points="508.66 981.33 23.99 496.66 508.66 11.99"/>
+                            </svg>
+                    </div>
+                </div>
+              </div>
+
+        
+          <!-- Panel 2 with three links to work page -->
+          <div id="panel-2" class="acc-child">
+            <!-- motion graphics -->
+            <div class="index-grid" data-index="0">
+                <img src="images/Attention/Attention thumbnail.png" alt="">
+                <h1>View my Showreel</h1>
+                <div class="index-overlay"></div> 
+            </div>
+            <!-- graphic design -->
+            <div class="index-grid" data-index="1">
+                <img src="images/Motion Graphics/Kinetic Text Thumbnail.png" alt="">
+                <h1>Motion Graphics and VFX</h1>
+                <div class="index-overlay"></div>
+            </div>
+            <!-- 3D modelling -->
+            <div class="index-grid" data-index="3">
+                <img src="images/Origin/Origin phone screen.png" alt="">
+                <h1>Graphic Design</h1>
+                <div class="index-overlay"></div>
+            </div>
+          </div> <!-- end of panel 2 -->
+          
+          <!-- Panel 3, about me -->
+          <div id="panel-3-grid" class="acc-child">
+            <div style="grid-area:image; margin-right:0%">
+                <img src="images/Compressed/Me at Williamsburg Bridge 1MB.jpg" alt="A photo of myself">
+            </div>
+            <div style="grid-area:bio; margin-bottom:0;">
+                <!-- <h1>Ashna Mali</h1> -->
+                <h3>I am an artist passionate about storytelling through motion design. Currently, I am a student at New York University pursuing my BFA in Interactive Media Arts.</h3>
+                <h3>Over the years, I have expanded from painting to 3D software, physical computing and web development. I don't know when to quit, and I am always learning new technology and software to push what I'm capable of.</h3>
+                <h3>Contact me at am12330@nyu.edu.</h3>
+            </div>
+            <div style="grid-area:mail; justify-self:center; margin:0;">
+                <a href="mailto:am12330@nyu.edu">
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg id="mail-icon" width="50px" height="50px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>Mail</title>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Mail">
+                                <rect fill-rule="nonzero" x="0" y="0" width="24" height="24"></rect>
+                                <rect id="Rectangle" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" x="4" y="5" width="16" height="14" rx="2"></rect>
+                                <path id="Rectangle" d="M20,7 L12.3,12.775 C12.1222,12.9083 11.8778,12.9083 11.7,12.775 L4,7" id="Path" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"></path>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <div style="grid-area:linkedin; justify-self:center; margin:0;">
+                <a href="https://www.linkedin.com/in/ashna-mali-1289972b5/" target="_blank">
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <svg id="linkedin-icon" width="50px" height="50px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="20" />
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M18.7747 14.2839C18.7747 15.529 17.8267 16.5366 16.3442 16.5366C14.9194 16.5366 13.9713 15.529 14.0007 14.2839C13.9713 12.9783 14.9193 12 16.3726 12C17.8267 12 18.7463 12.9783 18.7747 14.2839ZM14.1199 32.8191V18.3162H18.6271V32.8181H14.1199V32.8191Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M22.2393 22.9446C22.2393 21.1357 22.1797 19.5935 22.1201 18.3182H26.0351L26.2432 20.305H26.3322C26.9254 19.3854 28.4079 17.9927 30.8101 17.9927C33.7752 17.9927 35.9995 19.9502 35.9995 24.219V32.821H31.4922V24.7838C31.4922 22.9144 30.8404 21.6399 29.2093 21.6399C27.9633 21.6399 27.2224 22.4999 26.9263 23.3297C26.8071 23.6268 26.7484 24.0412 26.7484 24.4574V32.821H22.2411V22.9446H22.2393Z" fill="black"/>
+                    </svg>
+                </a>
+            </div>
+            
+          </div> <!-- end of panel 3, about me-->
+
+          <div id="panel-4-grid" class="acc-child" style="border-bottom:none; overflow-y:auto;">
+            <img src="images/Ashna Mali Resume Dark Mode High PNG.png" style="width:80%; height:auto; display:flex; justify-self:center;" alt="My Resume">
+            <!-- <object data="images/Ashna Mali Resume Dark Mode.pdf#toolbar=0" type="application/pdf" width="80%" height="100%" style="display:flex; justify-self:center;">
+                <p><a href="images/Ashna Mali Resume Dark Mode.pdf">Download</a> my resume.</p>
+            </object> -->
+
+
+            <!-- <div style="grid-area:head-1">
+                <h1>Graphic Designer</h1>
+                <h3>NYU Office of University Events</h3>
+                <h3>New York, NY</h3>
+            </div>
+            <div style="grid-area:exp-1">
+                <h3>Chill Description Chill Description Chill Description</h3>
+            </div>
+            <div style="grid-area:head-2">
+                <h1>Website Manager</h1>
+                <h3>Mayil Scarves</h3>
+                <h3>Littleton, MA</h3>
+            </div>
+            <div style="grid-area:exp-2">
+                <h3>Chill Description Chill Description Chill Description</h3>
+            </div>
+            <div style="grid-area:act-1">
+                <h2>Incoming Adobe Student Ambassador</h2>
+                <h3>Chill Description Chill Description Chill Description</h3>
+            </div>
+            <div style="grid-area:act-2">
+                <h2>IMA Spring Show</h2>
+                <h3>Chill Description Chill Description Chill Description</h3>
+            </div>
+            <div style="grid-area:skills; text-align:right;">
+                <h1>Skills</h1>
+                <h2>Adobe Suite</h2>
+                <h3>Photoshop, Illustrator, Indesign, Aftereffects, Audition</h3>
+                <h2>Blender</h2>
+                <h2>Fusion</h2>
+                <h2>Figma</h2>
+                <h2>Javascript</h2>
+                
+            </div> -->
+            
+          </div> 
+
+            </div>
+        </div>
+        <!-- end of accordian -->
+
+
+    <!-- Logo with absolute positioning -->
+        <div style="pointer-events:none;">
+            <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                type="module"></script>
+            <dotlottie-player src="https://lottie.host/bcd84297-f244-443d-ba0c-1da294959d43/1bfTZTOGX0.lottie"
+                background="transparent" speed="1.25" style="position:absolute; height:100%; width:100%; transform:scale(1.1);" autoplay></dotlottie-player>
+        </div>
+        
+    
+
+    <!-- scroll grid. Invisible, background -->
+      <div class="scroll-snap">
+        <div class="scroll-child" data-index="0"></div>
+        <div class="scroll-child" data-index="1"></div>
+        <div class="scroll-child" data-index="2"></div>
+        <div class="scroll-child" data-index="3"></div>
+      </div>
+
+
+
+      <!-- This defines the color of the metallic-looking border -->
+    <svg width="0" height="0">
+        <defs>
+             <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="black" />
+                        <stop offset="33%" stop-color="rgba(255,223,154,1)" />
+                        <stop offset="50%" stop-color="white" />
+                        <stop offset="66%" stop-color="rgba(255,223,154,1)" />
+                        <stop offset="100%" stop-color="black" />
+            </linearGradient>
+            <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="100%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="black" />
+                        <stop offset="33%" stop-color="rgba(255,223,154,1)" />
+                        <stop offset="50%" stop-color="white" />
+                        <stop offset="66%" stop-color="rgba(255,223,154,1)" />
+                        <stop offset="100%" stop-color="black" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- necessary scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="indexscript.js"></script>
+
+</body>
