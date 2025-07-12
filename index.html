@@ -60,6 +60,8 @@ initial-scale=1">
             /* max-height:100% still stretches the container */
         }
 
+     
+
         #panel-3-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -67,9 +69,29 @@ initial-scale=1">
                 "image bio bio"
                 "image bio bio"
                 "image mail linkedin";
+            
             /* height:95%; */
             width: 100%;
         }
+
+           @media only screen and (max-width: 650px) {
+            #panel-3-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 
+                "image image"
+                "bio bio"
+                "mail linkedin";
+            width: 100%;
+             }
+
+            #photo-me img {
+                aspect-ratio: 16/4; 
+                object-fit:contain;
+            }
+                
+        }
+
 
         #panel-3-grid > div{
             margin: 5%;
@@ -249,7 +271,7 @@ initial-scale=1">
           
           <!-- Panel 3, about me -->
           <div id="panel-3-grid" class="acc-child">
-            <div style="grid-area:image; margin-right:0%">
+            <div id="photo-me" style="grid-area:image;">
                 <img src="images/Compressed/Me at Williamsburg Bridge 1MB.jpg" alt="A photo of myself">
             </div>
             <div style="grid-area:bio; margin-bottom:0;">
